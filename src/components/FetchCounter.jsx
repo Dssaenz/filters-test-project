@@ -3,12 +3,11 @@ import { useGetListOfUsers } from '../hooks/useGetListOfUsers';
 
 const FetchCounter = () => {
   const { users, loading, letterResult, getRepeatedLetterByName } =
-    useGetListOfUsers(5);
+    useGetListOfUsers();
 
   useEffect(() => {
     getRepeatedLetterByName();
   }, []);
-  console.log(users);
 
   return (
     <div style={{ width: '50%' }}>

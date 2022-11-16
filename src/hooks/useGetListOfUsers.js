@@ -1,18 +1,18 @@
 import { useState } from 'react';
-import { randomUserApi } from '../api/randomUserApi';
+import { getUsersResponse } from '../helpers/getUsersResponse';
 
-export const useGetListOfUsers = (results = 10) => {
-  // hooks
+export const useGetListOfUsers = () => {
+  // hooks 'useState'
   const [users, setUsers] = useState([]);
   const [loading, handleLoading] = useState(false);
+  const [singleUser, setSingleUser] = useState({});
   const [letterResult, setLetterResult] = useState('');
 
   // Function to get list of users
   const getListOfUsers = async () => {
     handleLoading(true);
     try {
-      const resp = await randomUserApi.get(`/?results=${results}`);
-      const { results: usersResults } = resp.data;
+      const usersResults = await getUsersResponse();
 
       // Added sort method to order users by name
       const data = usersResults.sort((firstValue, secondValue) =>
@@ -32,12 +32,30 @@ export const useGetListOfUsers = (results = 10) => {
     }
   };
 
+  // Function to get user based on 'age' param
+  const getUserByCurrentAge = async age => {
+    handleLoading(true);
+    try {
+      const usersResults = await getUsersResponse();
+
+      // Added 'sort' and 'find' methods to get just one user with age range
+      const dataResult = usersResults
+        .sort((resultOne, resultTwo) => resultOne.dob.age - resultTwo.dob.age)
+        .find(({ dob }) => dob.age >= age);
+
+      !!dataResult && setSingleUser(dataResult);
+    } catch (error) {
+      throw new Error("Can't find users");
+    } finally {
+      handleLoading(false);
+    }
+  };
+
   // Function to find the most repeted lletter in the the names
   const getRepeatedLetterByName = async () => {
     handleLoading(true);
     try {
-      const resp = await randomUserApi.get(`/?results=${results}`);
-      const { results: usersResults } = resp.data;
+      const usersResults = await getUsersResponse(5);
 
       // Joins usernames into a single string
       const textNames = usersResults
@@ -82,8 +100,10 @@ export const useGetListOfUsers = (results = 10) => {
   return {
     users,
     loading,
+    singleUser,
     letterResult,
     getListOfUsers,
+    getUserByCurrentAge,
     getRepeatedLetterByName,
   };
 };
