@@ -1,10 +1,17 @@
-import { FastestShip, FetchFind, FetchCounter, FetchOrder } from './components';
+import {
+  PlanetTerrain,
+  FastestShip,
+  FetchFind,
+  FetchCounter,
+  FetchOrder,
+} from './components';
 
 function App() {
   return (
     <div style={{ display: 'flex' }}>
-      <FastestShip />
-      {/* <FetchOrder />
+      <PlanetTerrain />
+      {/* <FastestShip />
+      <FetchOrder />
       <FetchFind />
       <FetchCounter /> */}
     </div>
