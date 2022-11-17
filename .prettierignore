@@ -1,2 +1,4 @@
 public
 package-lock.json
+vite.config.js
+.prettierrc

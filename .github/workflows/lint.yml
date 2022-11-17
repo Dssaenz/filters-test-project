@@ -1,0 +1,15 @@
+name: JS Lint
+
+on: [push]
+
+jobs:
+  list_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Prepare Lint and Prettier for push
+        run: yarn
+      - name: Lint
+        run: yarn lint
+      - name: Prettier
+        run: yarn prettier
