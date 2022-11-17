@@ -1,8 +1,11 @@
 import { useState } from 'react';
 
 import { getShipsResponse } from '../helpers/getShipsResponse';
+import { getPlanetsResponse } from '../helpers/getPlanetsResponse';
 
 export const useSwapiListItems = () => {
+  // hooks 'useState'
+  const [planets, setPLanets] = useState([]);
   const [mainShip, setMainShips] = useState({});
   const [loading, handleLoading] = useState(false);
 
@@ -41,11 +44,24 @@ export const useSwapiListItems = () => {
     }
   };
 
+  // Function to get list of planets
+  const getListOfPlanets = async () => {
+    handleLoading(true);
+    try {
+      const dataResult = await getPlanetsResponse();
+      setPLanets(dataResult);
+    } catch (error) {
+      throw new Error("Can't find ships");
+    } finally {
+      handleLoading(false);
+    }
+  };
+
   return {
+    planets,
     loading,
     mainShip,
     getListOfShips,
+    getListOfPlanets,
   };
 };
-
-//24
