@@ -12,12 +12,24 @@ export const getShipsResponse = async () => {
   const dataResult = await Promise.all(promiseLoop);
   const resp = dataResult.flatMap(value => [...value]);
 
-  const newArray = resp.map(itemData => ({
+  // Filter to omit ships with undefined passengers
+  const filterWithoutPassengers = resp.filter(
+    element =>
+      !element.passengers.includes('unknown') &&
+      !element.passengers.includes('n/a')
+  );
+
+  // Filter to omit ships with undefined consumables
+  const shipConsumables = filterWithoutPassengers.filter(
+    element => !element.consumables.includes('unknown')
+  );
+
+  const newArray = shipConsumables.map(itemData => ({
     name: itemData.name,
     films: itemData.films,
-    passengers: itemData.passengers,
     consumables: itemData.consumables,
     starship_class: itemData.starship_class,
+    passengers: parseInt(itemData.passengers),
   }));
 
   return newArray;

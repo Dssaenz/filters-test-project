@@ -12,6 +12,7 @@ export const getPlanetsResponse = async () => {
   const dataResult = await Promise.all(promiseLoop);
   const resp = dataResult.flatMap(value => [...value]);
 
+  // Filter to omit planets with undefined population
   const filterResponse = resp.filter(
     element => !element.population.includes('unknown')
   );
