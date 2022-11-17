@@ -1,3 +1,5 @@
+import styled from 'styled-components';
+
 import {
   PlanetTerrain,
   FastestShip,
@@ -6,18 +8,25 @@ import {
   FetchOrder,
 } from './components';
 
+const SectionWrapper = styled.div`
+  display: block;
+  @media all and (min-width: 480px) {
+    display: flex;
+  }
+`;
+
 function App() {
   return (
     <>
-      <div style={{ display: 'flex' }}>
+      <SectionWrapper>
         <FetchOrder />
         <FetchFind />
         <FetchCounter />
-      </div>
-      <div style={{ display: 'flex' }}>
+      </SectionWrapper>
+      <SectionWrapper>
         <FastestShip />
         <PlanetTerrain />
-      </div>
+      </SectionWrapper>
     </>
   );
 }
