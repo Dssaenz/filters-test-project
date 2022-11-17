@@ -14,29 +14,23 @@ export const useSwapiListItems = () => {
     try {
       const dataResult = await getShipsResponse();
 
-      // First filter to omit ships with undefined passengers
-      const filterWithoutPassengers = dataResult.filter(
-        element =>
-          !element.passengers.includes('unknown') &&
-          !element.passengers.includes('n/a')
+      // First: Filter to get a ship validating number of passengers
+      const dataPassengers = dataResult.filter(
+        element => element.passengers >= passengers
       );
 
-      // Second filter to get a ship validating number of passengers
-      const dataPassengers = filterWithoutPassengers.filter(
-        element => parseInt(element.passengers) >= passengers
-      );
-
-      // Third filter to get a ship which part of the trilogy
+      // Second: Filter to get a ship which part of the trilogy
       const shipTrilogy = dataPassengers.filter(element =>
         element.films.some(film => parseInt(film.slice(-2, -1)) >= 4)
       );
 
-      // Fourth filter to omit ships with undefined consumables
-      const shipConsumables = shipTrilogy.filter(
-        element => !element.consumables.includes('unknown')
+      // Third: Order ships
+      const orderShips = shipTrilogy.sort(
+        (firstItem, secondItem) => firstItem.passengers - secondItem.passengers
       );
 
-      setMainShips(shipConsumables[0]);
+      if (orderShips.length === 0) return setMainShips({});
+      setMainShips(orderShips[0]);
     } catch (error) {
       throw new Error("Can't find ships");
     } finally {

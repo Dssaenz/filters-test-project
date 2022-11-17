@@ -9,8 +9,8 @@ import {
 function App() {
   return (
     <div style={{ display: 'flex' }}>
-      <PlanetTerrain />
-      {/* <FastestShip />
+      <FastestShip />
+      {/* <PlanetTerrain />
       <FetchOrder />
       <FetchFind />
       <FetchCounter /> */}
