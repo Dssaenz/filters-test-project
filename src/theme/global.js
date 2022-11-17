@@ -4,6 +4,7 @@ export default createGlobalStyle`
   html, body {
     width: 100%;
     margin: 0;
+    background-color: #f2f2f2;
     font-family: 'Lato', sans-serif;
     font-size: 12px;
     font-weight: 400;

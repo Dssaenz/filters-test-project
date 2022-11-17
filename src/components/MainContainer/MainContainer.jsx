@@ -1,11 +1,4 @@
-import styled from 'styled-components';
-
-const Section = styled.div`
-  width: 50%;
-  overflow: scroll;
-  height: 440px;
-  padding-left: 1rem;
-`;
+import { Section } from './styles';
 
 const MainContainer = ({ title = 'Main title', children }) => (
   <Section>

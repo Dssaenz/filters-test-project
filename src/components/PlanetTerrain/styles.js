@@ -5,6 +5,7 @@ export const Section = styled.div`
   margin: 30px 0 0 5px;
   border-radius: 10px;
   padding: 10px 20px;
+  background-color: ${props => props.theme.colors.white};
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   p {
     font-size: 15px;
