@@ -1,5 +1,8 @@
 import { useEffect } from 'react';
-import { Wrapper, ListUser, Container } from './styles';
+import { Wrapper, ListUser, Container, Text } from './styles';
+
+import Spinner from '../Spinner/Spinner';
+import MainContainer from '../MainContainer/MainContainer';
 
 import { useGetListOfUsers } from '../../hooks/useGetListOfUsers';
 
@@ -12,9 +15,8 @@ const FetchCounter = () => {
   }, []);
 
   return (
-    <div style={{ width: '50%' }}>
-      <h1>Fetch & count</h1>
-      {loading ? 'Loading...' : null}
+    <MainContainer title='Fetch & count'>
+      {loading ? <Spinner /> : null}
       <Wrapper>
         {users?.map(({ cell, name, picture, login }) => (
           <ListUser key={cell}>
@@ -32,8 +34,8 @@ const FetchCounter = () => {
           </ListUser>
         ))}
       </Wrapper>
-      <p style={{ fontSize: 16 }}>{letterResult}</p>
-    </div>
+      <Text>{letterResult}</Text>
+    </MainContainer>
   );
 };
 

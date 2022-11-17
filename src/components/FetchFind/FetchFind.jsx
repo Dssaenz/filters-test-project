@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { Input, Button, UserCard } from './styles';
 
+import Spinner from '../Spinner/Spinner';
+import MainContainer from '../MainContainer/MainContainer';
+
 import { useGetListOfUsers } from '../../hooks/useGetListOfUsers';
 
 const FetchFind = () => {
@@ -15,11 +18,10 @@ const FetchFind = () => {
   };
 
   return (
-    <div style={{ width: '50%' }}>
-      <h1>Fetch & find</h1>
+    <MainContainer title='Fetch & find'>
       <Input type='number' name='agevalue' onChange={onInputChange} />
       <Button onClick={onSearchUser}>Search User</Button>
-      {loading ? <p>Loading...</p> : null}
+      {loading ? <Spinner /> : null}
       {Object.keys(singleUser).length !== 0 && !loading && (
         <UserCard>
           <div>
@@ -38,7 +40,7 @@ const FetchFind = () => {
           </div>
         </UserCard>
       )}
-    </div>
+    </MainContainer>
   );
 };
 

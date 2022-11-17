@@ -1,8 +1,13 @@
 export const lightTheme = {
   name: 'light',
   colors: {
+    gray: '#aaa',
     dark: '#000',
+    light: '#eee',
+    white: '#fff',
     backgroundColor: '#FFF',
+    blue: '#4287f5',
+    lightBlue: '#1d6cb5',
   },
   text: {
     h1: '36px', // Title
@@ -24,8 +29,13 @@ export const lightTheme = {
 export const darkTheme = {
   name: 'dark',
   colors: {
+    gray: '#aaa',
     dark: '#000',
+    light: '#eee',
+    white: '#fff',
     backgroundColor: '#FFF',
+    blue: '#4287f5',
+    lightBlue: '#1d6cb5',
   },
   text: {
     h1: '36px', // Title
