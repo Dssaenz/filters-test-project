@@ -1,11 +1,12 @@
-import { FetchFind, FetchCounter, FetchOrder } from './components';
+import { FastestShip, FetchFind, FetchCounter, FetchOrder } from './components';
 
 function App() {
   return (
     <div style={{ display: 'flex' }}>
-      <FetchOrder />
+      <FastestShip />
+      {/* <FetchOrder />
       <FetchFind />
-      <FetchCounter />
+      <FetchCounter /> */}
     </div>
   );
 }
