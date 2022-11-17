@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
 `;
 
 export const ListUser = styled.ul`
-  background: #fff;
+  background: ${props => props.theme.colors.white};
   border-radius: 2px;
   list-style: none;
   padding: 4px 15px;
@@ -30,7 +30,7 @@ export const Container = styled.li`
     font-size: 18px;
     display: inline-block;
     position: relative;
-    color: #000;
+    color: ${props => props.theme.colors.dark};
   }
   h4::after {
     content: '';
@@ -40,7 +40,7 @@ export const Container = styled.li`
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #000;
+    background-color: ${props => props.theme.colors.dark};
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
@@ -50,7 +50,7 @@ export const Container = styled.li`
     transform-origin: bottom left;
   }
   p {
-    color: #aaa;
+    color: ${props => props.theme.colors.gray};
     font-size: 15px;
     margin-top: 5px;
   }

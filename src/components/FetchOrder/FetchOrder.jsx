@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
 import { Wrapper, ListUser, Container } from './styles';
 
+import Spinner from '../Spinner/Spinner';
+import MainContainer from '../MainContainer/MainContainer';
+
 import { useGetListOfUsers } from '../../hooks/useGetListOfUsers';
 
 const FetchOrder = () => {
@@ -11,9 +14,8 @@ const FetchOrder = () => {
   }, []);
 
   return (
-    <div style={{ width: '50%' }}>
-      <h1>Fetch & order</h1>
-      {loading ? 'Loading...' : null}
+    <MainContainer title='Fetch & order'>
+      {loading ? <Spinner /> : null}
       <Wrapper>
         {users?.map(({ cell, name, picture, login }) => (
           <ListUser key={cell}>
@@ -31,7 +33,7 @@ const FetchOrder = () => {
           </ListUser>
         ))}
       </Wrapper>
-    </div>
+    </MainContainer>
   );
 };
 

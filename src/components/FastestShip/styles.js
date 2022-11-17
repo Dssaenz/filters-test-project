@@ -1,19 +1,5 @@
 import styled from 'styled-components';
 
-export const Input = styled.input`
-  font-size: 15px;
-  background-color: ${props => props.theme.colors.light};
-  width: 40%;
-  border: none;
-  padding: 5px 10px;
-  margin-right: 1rem;
-
-  &:focus,
-  &:active {
-    outline: none;
-  }
-`;
-
 export const Button = styled.button`
   position: relative;
   background-color: ${props => props.theme.colors.blue};
@@ -46,32 +32,21 @@ export const Button = styled.button`
   }
 `;
 
-export const UserCard = styled.div`
-  margin-top: 20px;
-  display: flex;
-  width: 80%;
-  padding: 5px 4% 10px 4%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  .avatar {
-    border-radius: 50%;
-    width: 64px;
-    margin-right: 1rem;
-  }
-  h4,
+export const Section = styled.div`
+  width: 55%;
+  margin: 30px 0 0 5px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   p {
-    margin: 0;
-  }
-  h4 {
-    margin-top: 10px;
-    font-size: 18px;
-    display: inline-block;
-    position: relative;
-    color: ${props => props.theme.colors.dark};
-  }
-
-  p {
-    margin-top: 5px;
     font-size: 15px;
-    color: ${props => props.theme.colors.gray};
+    letter-spacing: 1.2px;
+    word-spacing: 0.8px;
+    color: ${props => props.theme.colors.dark};
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
   }
 `;

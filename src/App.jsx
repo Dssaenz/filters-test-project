@@ -8,13 +8,17 @@ import {
 
 function App() {
   return (
-    <div style={{ display: 'flex' }}>
-      <FastestShip />
-      {/* <PlanetTerrain />
-      <FetchOrder />
-      <FetchFind />
-      <FetchCounter /> */}
-    </div>
+    <>
+      <div style={{ display: 'flex' }}>
+        <FetchOrder />
+        <FetchFind />
+        <FetchCounter />
+      </div>
+      <div style={{ display: 'flex' }}>
+        <FastestShip />
+        <PlanetTerrain />
+      </div>
+    </>
   );
 }
 

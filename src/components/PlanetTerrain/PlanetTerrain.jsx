@@ -1,5 +1,11 @@
 import { useEffect, useState, useMemo } from 'react';
 
+import { Section } from './styles';
+
+import Spinner from '../Spinner/Spinner';
+import InputField from '../InputField/InputField';
+import MainContainer from '../MainContainer/MainContainer';
+
 import { useSwapiListItems } from '../../hooks/useSwapiListItems';
 
 const PlanetTerrain = () => {
@@ -22,23 +28,25 @@ const PlanetTerrain = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Planet by terrain</h1>
+    <MainContainer title='Planet by terrain'>
       <div>
-        <input type='text' value={terrain} onChange={handleSearch} />
+        <InputField type='text' value={terrain} onChange={handleSearch} />
       </div>
-      {loading ? <p>Loading...</p> : null}
+      {loading ? <Spinner /> : null}
 
       {filterPlanets.length !== 0 &&
         !loading &&
         filterPlanets.slice(0, 1).map(planet => (
-          <div key={planet.url}>
-            <p>Name: {planet.name}</p>
-            <p>Terrain: {planet.terrain}</p>
-            <br />
-          </div>
+          <Section key={planet.url}>
+            <p>
+              <b>Name:</b> {planet.name}
+            </p>
+            <p>
+              <b>Terrain:</b> {planet.terrain}
+            </p>
+          </Section>
         ))}
-    </div>
+    </MainContainer>
   );
 };
 

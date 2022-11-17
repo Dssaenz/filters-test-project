@@ -1,4 +1,9 @@
 import { useState } from 'react';
+import { Button, Section } from './styles';
+
+import Spinner from '../Spinner/Spinner';
+import InputField from '../InputField/InputField';
+import MainContainer from '../MainContainer/MainContainer';
 
 import { useSwapiListItems } from '../../hooks/useSwapiListItems';
 
@@ -14,20 +19,27 @@ const FastestShip = () => {
   };
 
   return (
-    <div>
-      <h1>Fastest ship</h1>
-      <input type='number' name='peopleNumber' onChange={onInputChange} />
-      <button onClick={onSearchUser}>Search User</button>
-      {loading ? <p>Loading...</p> : null}
+    <MainContainer title='Fastest ship'>
+      <InputField type='number' name='peopleNumber' onChange={onInputChange} />
+      <Button onClick={onSearchUser}>Search User</Button>
+      {loading ? <Spinner /> : null}
       {Object.keys(mainShip).length !== 0 && !loading && (
-        <>
-          <p>Name: {mainShip.name}</p>
-          <p>Starship class: {mainShip.starship_class}</p>
-          <p>Number of passengers: {mainShip.passengers}</p>
-          <p>Travel time: {mainShip.consumables}</p>
-        </>
+        <Section>
+          <p>
+            <b>Name:</b> {mainShip.name}
+          </p>
+          <p>
+            <b>Starship class:</b> {mainShip.starship_class}
+          </p>
+          <p>
+            <b>Number of passengers:</b> {mainShip.passengers}
+          </p>
+          <p>
+            <b>Travel time:</b> {mainShip.consumables}
+          </p>
+        </Section>
       )}
-    </div>
+    </MainContainer>
   );
 };
 
