@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Input, Button, UserCard } from './styles';
+import { Button, UserCard } from './styles';
 
 import Spinner from '../Spinner/Spinner';
+import InputField from '../InputField/InputField';
 import MainContainer from '../MainContainer/MainContainer';
 
 import { useGetListOfUsers } from '../../hooks/useGetListOfUsers';
@@ -19,7 +20,7 @@ const FetchFind = () => {
 
   return (
     <MainContainer title='Fetch & find'>
-      <Input type='number' name='agevalue' onChange={onInputChange} />
+      <InputField type='number' name='agevalue' onChange={onInputChange} />
       <Button onClick={onSearchUser}>Search User</Button>
       {loading ? <Spinner /> : null}
       {Object.keys(singleUser).length !== 0 && !loading && (
