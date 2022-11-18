@@ -5,8 +5,8 @@ export const Wrapper = styled.div`
 `;
 
 export const ListUser = styled.ul`
-  background: ${props => props.theme.colors.white};
-  border-radius: 2px;
+  background: ${props => props.theme.colors.darkGray};
+  border-radius: 8px;
   list-style: none;
   padding: 4px 15px;
 `;

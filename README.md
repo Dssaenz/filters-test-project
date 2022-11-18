@@ -12,8 +12,7 @@ React web app build with React and Javascript.
 
 # Features!
 
-<!-- - Dark mode 🔥 -->
-
+- Dark mode 🔥
 - All with Javascript
 - Frontend deployed in netlify.com
 

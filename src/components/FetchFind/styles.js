@@ -1,19 +1,5 @@
 import styled from 'styled-components';
 
-export const Input = styled.input`
-  font-size: 15px;
-  background-color: ${props => props.theme.colors.white};
-  width: 40%;
-  border: none;
-  padding: 5px 10px;
-  margin-right: 1rem;
-
-  &:focus,
-  &:active {
-    outline: none;
-  }
-`;
-
 export const Button = styled.button`
   position: relative;
   background-color: ${props => props.theme.colors.blue};
@@ -49,8 +35,10 @@ export const Button = styled.button`
 export const UserCard = styled.div`
   margin-top: 20px;
   display: flex;
-  width: 80%;
-  padding: 5px 4% 10px 4%;
+  width: 70%;
+  border-radius: 8px;
+  padding: 10px 4% 10px 4%;
+  background: ${props => props.theme.colors.darkGray};
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   .avatar {
     border-radius: 50%;

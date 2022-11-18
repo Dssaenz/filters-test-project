@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  max-width: 400px;
+  max-width: 350px;
 `;
 
 export const ListUser = styled.ul`
-  background: ${props => props.theme.colors.white};
-  border-radius: 2px;
+  background: ${props => props.theme.colors.darkGray};
+  border-radius: 8px;
   list-style: none;
   padding: 4px 15px;
 `;
@@ -15,6 +15,7 @@ export const Container = styled.li`
   display: flex;
   padding-bottom: 10px;
   padding-top: 5px;
+  border-radius: 14px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   .avatar {
     border-radius: 50%;
@@ -30,7 +31,7 @@ export const Container = styled.li`
     font-size: 18px;
     display: inline-block;
     position: relative;
-    color: ${props => props.theme.colors.dark};
+    color: ${props => props.theme.colors.title};
   }
   h4::after {
     content: '';
@@ -40,7 +41,7 @@ export const Container = styled.li`
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: ${props => props.theme.colors.dark};
+    background-color: ${props => props.theme.colors.title};
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
@@ -50,7 +51,7 @@ export const Container = styled.li`
     transform-origin: bottom left;
   }
   p {
-    color: ${props => props.theme.colors.gray};
+    color: ${props => props.theme.colors.title};
     font-size: 15px;
     margin-top: 5px;
   }

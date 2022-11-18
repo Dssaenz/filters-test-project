@@ -8,4 +8,7 @@ export const Section = styled.div`
   @media all and (min-width: 480px) {
     width: 50%;
   }
+  h1 {
+    color: ${props => props.theme.colors.title};
+  }
 `;

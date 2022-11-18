@@ -5,6 +5,7 @@ import FastestShip from './FastestShip/FastestShip';
 import PlanetTerrain from './PlanetTerrain/PlanetTerrain';
 import MainContainer from './MainContainer/MainContainer';
 import InputField from './InputField/InputField';
+import ButtonTheme from './ButtonTheme/ButtonTheme';
 
 export {
   FetchFind,
@@ -14,4 +15,5 @@ export {
   PlanetTerrain,
   MainContainer,
   InputField,
+  ButtonTheme,
 };
